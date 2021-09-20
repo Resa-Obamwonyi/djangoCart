@@ -10,7 +10,8 @@
 </head>
 <body>
         <h3>Cart (3 items)</h3>
-        <table class="item-area">
+        <div class="item-area">
+            <table>
                 <tr>
                     <th>Product</th>
                     <th>Quantity(kg)</th>
@@ -39,7 +40,11 @@
             {% endfor %}
         </table>
         <div class="btn-div">
+            <div>
+                <h4>SUB TOTAL: AED 76.50</h4>
+            </div>
             <button submit="submit">Buy</button>
         </div>
+    </div>
 </body>
 </html>
