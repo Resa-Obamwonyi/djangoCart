@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href={% static "css/style.css" %}>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Shopping Cart</title>
 </head>
 <body>
         <h3>Cart (3 items)</h3>
         <div class="item-area">
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                    <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <form action="/cart/" method="POST">
+                {% csrf_token %}
             <table>
                 <tr>
                     <th>Product</th>
@@ -23,28 +32,33 @@
                     <td>{{ product.name }}</td>
 
                     {% if product.name == 'Potatoes' %}
-                        <td><input type="number" value="2"/></td>
+                        <td><input type="number" value="2" id="potatoQty" name="Potatoes" min="1"/></td>
+                        <td id="potatoPrice">AED {{product.price}}</td>
                     {% endif %}
 
                     {% if product.name == 'Onions' %}
-                    <td><input type="number" value="1"/></td>
+                        <td><input type="number" value="1" id="onionQty" name="Onions" min="1"/></td>
+                        <td id="onionPrice">AED {{product.price}}</td>
                     {% endif %}
 
                     {% if product.name == 'Carrots' %}
-                    <td><input type="number" value="1"/></td>
+                        <td><input type="number" value="1" id="carrotQty" name="Carrots" min="1"/></td>
+                        <td id="carrotPrice">AED {{product.price}}</td>
                     {% endif %}
 
-                    <td>AED {{product.price}}</td>
-                    <td>AED 14.50</td>
+                    <!-- <td>AED {{product.price}}</td> -->
+                    <td class="itemTotal" id="singleItemTotal">AED <input type="text" /></td>
                 </tr>
             {% endfor %}
         </table>
         <div class="btn-div">
             <div>
-                <h4>SUB TOTAL: AED 76.50</h4>
+                <h4 >SUB TOTAL: AED <span class="totalPrice" id="total"></span></h4>
             </div>
-            <button submit="submit">Buy</button>
+            <input type="submit" value="Buy">
         </div>
+    </form>
     </div>
 </body>
+<script src="{% static 'js/app.js' %}"></script>
 </html>
