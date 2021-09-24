@@ -13,6 +13,13 @@ def shopping_cart(request):
         if form.is_valid():
             for product in form.cleaned_data:
                 product_instance = Product.objects.filter(name=product).first()
+
+                if product_instance.quantity == 0:
+
+                    return TemplateResponse(request, ['cart/cart.html'], 
+                        {'products': products, 
+                        'message':messages.error(request, f'Sorry, We are out of {product_instance.name}')})
+
                 if form.cleaned_data[product] > product_instance.quantity:
                         return TemplateResponse(request, ['cart/cart.html'], 
                         {'products': products, 
