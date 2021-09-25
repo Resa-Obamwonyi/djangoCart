@@ -12,9 +12,9 @@ This project is for a shopping cart page built with Python 3+, Django 3, HTML, C
 ### How to Run this Project
   - Confirm python3 and Django installations on your local computer.
   - Clone the repository using the command `git clone https://github.com/Resa-Obamwonyi/djangoCart.git`
-  - In your terminal, create a virtual environment. The following commands are for users on a Mac. 
+  - In your terminal, create a virtual environment. 
   - first run `pip3 install virtualenv` then cd into the root of your project and run `virtualenv venv` where "venv" is the name of your env folder.
-  - Activate the virtual environment using `source venv/bin/activate` , confirm that the virtual environment is running.
+  - Activate the virtual environment using **`source venv/bin/activate` FOR MAC**, and **`\path\to\env\Scripts\activate` FOR WINDOWS**, confirm that the virtual environment is running.
   - In your root folder, create a file called ".env" , in this file, paste the environment variables provided to you.
   - With venv still activated run `pip install -r requirements.txt` or `pip3 install -r requirements.txt`
   - Run migrations with `python manage.py makemigrations` and `python manage.py migrate`
