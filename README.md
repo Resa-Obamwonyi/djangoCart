@@ -18,7 +18,7 @@ This project is for a shopping cart page built with Python 3+, Django 3, HTML, C
   - In your root folder, create a file called ".env" , in this file, paste the environment variables provided to you.
   - With venv still activated run `pip install -r requirements.txt` or `pip3 install -r requirements.txt`
   - Run migrations with `python manage.py makemigrations` and `python manage.py migrate`
-  - To Seed the default data into the db, run `python manage.py loaddata products.json`
+  - Seed the default data into the db, run `python manage.py loaddata products.json`
   - To create a super user with  which to access the django admin, run the command `python manage.py createsuperuser`, and follow the prompt.
   - Run `python manage.py runserver` to start the project server
   - To access the admin portal, visit `http://127.0.0.1:8000/admin/`, login with the superuser credentials from before.
