@@ -20,18 +20,3 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-
-# class CartItem(models.Model):
-
-#     id = models.AutoField(primary_key=True)
-#     quantity = models.IntegerField(null=True, blank=True)
-#     product = models.ForeignKey(
-#         'Product', on_delete=models.CASCADE, related_name='cartitems')
-#     # user = models.ForeignKey(
-#         # 'User', on_delete=models.CASCADE, related_name='cartitems')
-
-#     class Meta:
-#         db_table = "cartItem"
-    
-#     def __str__(self):
-#         return self.product.name

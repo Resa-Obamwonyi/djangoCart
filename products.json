@@ -1,5 +1,14 @@
 [
-  { "name": "Potatoes", "quantity": 5 },
-  { "name": "Carrots", "quantity": 6 },
-  { "name": "Onions", "quantity": 4 }
+    {
+       "model":"cart.product",
+       "fields":{"name": "Potatoes", "quantity": 5 }
+    },
+    {
+        "model":"cart.product",
+        "fields":{"name": "Carrots", "quantity": 4 }
+     },
+     {
+        "model":"cart.product",
+        "fields":{"name": "Onions", "quantity": 6 }
+     }
 ]
