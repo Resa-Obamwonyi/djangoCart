@@ -32,21 +32,21 @@
                     <td>{{ product.name }}</td>
 
                     {% if product.name == 'Potatoes' %}
-                        <td><input type="number" value="2" id="potatoQty" name="Potatoes" min="1" oninput="calculateSingleItemPrice()" /></td>
+                        <td><input type="number" value="2" id="potatoQty" name="Potatoes" min="1" oninput="calculateSingleItemPrice('potatoes')" /></td>
                         <td >AED <input type="number" id="potatoPrice" value="{{product.price}}" readonly/ ></td>
-                        <td class="itemTotal">AED <input type="text" id="singleItemTotal" value="10.0" readonly /></td>
+                        <td class="itemTotal">AED <input type="text" id="potatoTotal" value="10.0" readonly /></td>
                     {% endif %}
 
                     {% if product.name == 'Carrots' %}
-                        <td><input type="number" value="1" id="carrotQty" name="Carrots" min="1" oninput="calculateSingleItemPrice()"/></td>
+                        <td><input type="number" value="1" id="carrotQty" name="Carrots" min="1" oninput="calculateSingleItemPrice('carrots')"/></td>
                         <td >AED <input type="number" id="carrotPrice" value="{{product.price}}" readonly/ ></td>
-                        <td class="itemTotal">AED <input type="text" id="singleItemTotal" value="2.0" readonly /></td>
+                        <td class="itemTotal">AED <input type="text" id="carrotTotal" value="2.0" readonly /></td>
                     {% endif %}
 
                     {% if product.name == 'Onions' %}
-                        <td><input type="number" value="1" id="onionQty" name="Onions" min="1" oninput="calculateSingleItemPrice()"/></td>
+                        <td><input type="number" value="1" id="onionQty" name="Onions" min="1" oninput="calculateSingleItemPrice('onions')"/></td>
                         <td >AED <input type="number" id="onionPrice" value="{{product.price}}" readonly/ ></td>
-                        <td class="itemTotal">AED <input type="text" id="singleItemTotal" value="4.0" readonly /></td>
+                        <td class="itemTotal">AED <input type="text" id="onionTotal" value="4.0" readonly /></td>
                     {% endif %}
 
                 </tr>
@@ -54,7 +54,7 @@
         </table>
         <div class="btn-div">
             <div class="sub-total">
-                <h4 >TOTAL PRICE: AED <input class="totalPrice" id="total" type="text" value="0.0" readonly/></h4>
+                <h4 >TOTAL PRICE: AED <input class="totalPrice" id="total" type="text" value="16.0" readonly/></h4>
             </div>
             <input id="submit" type="submit" value="Buy">
         </div>
