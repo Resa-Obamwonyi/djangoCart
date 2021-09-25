@@ -1,9 +1,7 @@
-from django.http import HttpResponseRedirect
 from django.template.response import TemplateResponse
 from .models import Product
 from django.contrib import messages
 from .forms import CartForm
-from django.shortcuts import render
 
 
 def shopping_cart(request):
