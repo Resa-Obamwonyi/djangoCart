@@ -1,14 +1,35 @@
 [
-    {
-       "model":"cart.product",
-       "fields":{"name": "Potatoes", "quantity": 5 }
-    },
-    {
-        "model":"cart.product",
-        "fields":{"name": "Carrots", "quantity": 4 }
-     },
-     {
-        "model":"cart.product",
-        "fields":{"name": "Onions", "quantity": 6 }
-     }
+{
+    "model": "cart.product",
+    "pk": "011c750e-a732-4f6d-93e0-fc5eae9ae0da",
+    "fields": {
+        "name": "Potatoes",
+        "quantity": 5,
+        "price": 5.0,
+        "created_at": "2021-09-20T10:58:20Z",
+        "updated_at": null
+    }
+},
+{
+    "model": "cart.product",
+    "pk": "18ab2f92-50cd-4266-9b4c-42286b2b8fa5",
+    "fields": {
+        "name": "Carrots",
+        "quantity": 3,
+        "price": 4.0,
+        "created_at": "2021-09-25T15:01:53.224Z",
+        "updated_at": null
+    }
+},
+{
+    "model": "cart.product",
+    "pk": "2e266a29-4808-4632-95d6-de2eb6733de0",
+    "fields": {
+        "name": "Onions",
+        "quantity": 6,
+        "price": 2.0,
+        "created_at": "2021-09-25T15:02:14.657Z",
+        "updated_at": null
+    }
+}
 ]
