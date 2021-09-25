@@ -20,42 +20,43 @@
             {% endif %}
             <form action="/cart/" method="POST">
                 {% csrf_token %}
-            <table>
+            <table id="cart-table">
                 <tr>
                     <th>Product</th>
                     <th>Quantity(kg)</th>
                     <th>Price(per kg)</th>
-                    <th>Total Price</th>
+                    <th>Line Price</th>
                 </tr>
             {% for product in products %}
                 <tr>
                     <td>{{ product.name }}</td>
 
                     {% if product.name == 'Potatoes' %}
-                        <td><input type="number" value="2" id="potatoQty" name="Potatoes" min="1"/></td>
-                        <td id="potatoPrice">AED {{product.price}}</td>
-                    {% endif %}
-
-                    {% if product.name == 'Onions' %}
-                        <td><input type="number" value="1" id="onionQty" name="Onions" min="1"/></td>
-                        <td id="onionPrice">AED {{product.price}}</td>
+                        <td><input type="number" value="2" id="potatoQty" name="Potatoes" min="1" oninput="calculateSingleItemPrice()" /></td>
+                        <td >AED <input type="number" id="potatoPrice" value="{{product.price}}" readonly/ ></td>
+                        <td class="itemTotal">AED <input type="text" id="singleItemTotal" value="10.0" readonly /></td>
                     {% endif %}
 
                     {% if product.name == 'Carrots' %}
-                        <td><input type="number" value="1" id="carrotQty" name="Carrots" min="1"/></td>
-                        <td id="carrotPrice">AED {{product.price}}</td>
+                        <td><input type="number" value="1" id="carrotQty" name="Carrots" min="1" oninput="calculateSingleItemPrice()"/></td>
+                        <td >AED <input type="number" id="carrotPrice" value="{{product.price}}" readonly/ ></td>
+                        <td class="itemTotal">AED <input type="text" id="singleItemTotal" value="2.0" readonly /></td>
                     {% endif %}
 
-                    <!-- <td>AED {{product.price}}</td> -->
-                    <td class="itemTotal" id="singleItemTotal">AED <input type="text" /></td>
+                    {% if product.name == 'Onions' %}
+                        <td><input type="number" value="1" id="onionQty" name="Onions" min="1" oninput="calculateSingleItemPrice()"/></td>
+                        <td >AED <input type="number" id="onionPrice" value="{{product.price}}" readonly/ ></td>
+                        <td class="itemTotal">AED <input type="text" id="singleItemTotal" value="4.0" readonly /></td>
+                    {% endif %}
+
                 </tr>
             {% endfor %}
         </table>
         <div class="btn-div">
-            <div>
-                <h4 >SUB TOTAL: AED <span class="totalPrice" id="total"></span></h4>
+            <div class="sub-total">
+                <h4 >TOTAL PRICE: AED <input class="totalPrice" id="total" type="text" value="0.0" readonly/></h4>
             </div>
-            <input type="submit" value="Buy">
+            <input id="submit" type="submit" value="Buy">
         </div>
     </form>
     </div>
