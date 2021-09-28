@@ -1,37 +1,19 @@
 
-function calculateSingleItemPrice(e) {
-  if (e == 'potatoes'){
-    var itemQuantity = document.getElementById("potatoQty");
-    var itemPrice = document.getElementById("potatoPrice");
-    var totalId = 'potatoTotal';
-  }
+function calculateSingleItemPrice() { 
+  var cartRows = document.getElementsByClassName("cart-item")
+  var subTotal = 0
 
-  if (e == 'carrots'){
-    var itemQuantity = document.getElementById("carrotQty");
-    var itemPrice = document.getElementById("carrotPrice");
-    var totalId = 'carrotTotal';
-  }
+  for(var i=0; i < cartRows.length; i++){
 
-  if (e == 'onions'){
-    var itemQuantity = document.getElementById("onionQty");
-    var itemPrice = document.getElementById("onionPrice");
-    var totalId = 'onionTotal';
-  }
-  
-  var itemPrice = parseFloat(itemPrice.value) || 0;
-  var itemQuantity = parseFloat(itemQuantity.value) || 0;
-  var totalPrice = itemPrice * itemQuantity || 0;
+      var itemQuantity = parseInt(cartRows[i].getElementsByClassName("currentProductQuantity")[0].value) || 0;
+      var itemPrice = parseFloat(cartRows[i].getElementsByClassName("currentProductPrice")[0].value) || 0;
 
-  document.getElementById(totalId).value = totalPrice;
-  calculateSubTotal();
+      var totalPrice = itemQuantity * itemPrice
+      cartRows[i].getElementsByClassName("currentProductTotal")[0].value = totalPrice;
+      subTotal += totalPrice;
+      document.getElementById("total").value = subTotal;
+
+  }
 }
 
-function calculateSubTotal(){
-  var  potatoTotal = parseFloat(document.getElementById("potatoTotal").value) || 0;
-  var  carrotTotal = parseFloat(document.getElementById("carrotTotal").value) || 0;
-  var  onionTotal = parseFloat(document.getElementById("onionTotal").value) || 0;
-
-  var grandTotal = potatoTotal + carrotTotal + onionTotal;
-  document.getElementById("total").value = grandTotal;
-
-}
+window.onload(calculateSingleItemPrice());

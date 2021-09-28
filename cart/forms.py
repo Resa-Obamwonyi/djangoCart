@@ -1,6 +1,10 @@
+from cart.models import Product
 from django import forms
 
+all_products = Product.objects.all()
+
 class CartForm(forms.Form):
-    Potatoes = forms.IntegerField()
-    Onions = forms.IntegerField()
-    Carrots = forms.IntegerField()
+    def __init__(self, *args):
+        super(CartForm, self).__init__(*args)
+        for product in Product.objects.all():
+            product.name = forms.IntegerField()
