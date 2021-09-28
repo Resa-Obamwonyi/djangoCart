@@ -10,33 +10,52 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=20)),
-                ('quantity', models.IntegerField()),
-                ('price', models.FloatField()),
-                ('created_at', models.DateTimeField(blank=True, default=django.utils.timezone.now, null=True)),
-                ('updated_at', models.DateTimeField(blank=True, null=True)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("name", models.CharField(max_length=20)),
+                ("quantity", models.IntegerField()),
+                ("price", models.FloatField()),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        blank=True, default=django.utils.timezone.now, null=True
+                    ),
+                ),
+                ("updated_at", models.DateTimeField(blank=True, null=True)),
             ],
             options={
-                'db_table': 'product',
+                "db_table": "product",
             },
         ),
         migrations.CreateModel(
-            name='CartItem',
+            name="CartItem",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('quantity', models.IntegerField(blank=True, null=True)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='cartitems', to='cart.product')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("quantity", models.IntegerField(blank=True, null=True)),
+                (
+                    "product",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="cartitems",
+                        to="cart.product",
+                    ),
+                ),
             ],
             options={
-                'db_table': 'cartItem',
+                "db_table": "cartItem",
             },
         ),
     ]
