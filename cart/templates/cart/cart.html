@@ -11,7 +11,7 @@
     {% endfor %}
   </div>
   {% endif %}
-  
+
   <form action="/" method="POST" onunload="calculateSingleItemPrice()">
     {% csrf_token %} {{ products.management_form }}
     <table id="cart-table">
@@ -28,16 +28,32 @@
           <td>{{ product.name }}</td>
 
           <td>
-            <input type="number" value="{{product.quantity}}" class="currentProductQuantity" name="{{product.name}}"
-              min="1" oninput="calculateSingleItemPrice()" />
+            <input
+              type="number"
+              value="{{product.quantity}}"
+              class="currentProductQuantity"
+              name="{{product.name}}"
+              min="1"
+              oninput="calculateSingleItemPrice()"
+            />
           </td>
           <td>
-            AED <input type="number" class="currentProductPrice" value="{{product.price}}" readonly/>
+            AED
+            <input
+              type="number"
+              class="currentProductPrice"
+              value="{{product.price}}"
+              readonly
+            />
           </td>
           <td class="itemTotal">
             AED
-            <input type="text" class="currentProductTotal" value="{% widthratio product.price 1 product.quantity %}"
-              readonly />
+            <input
+              type="text"
+              class="currentProductTotal"
+              value="{% widthratio product.price 1 product.quantity %}"
+              readonly
+            />
           </td>
         </tr>
 
